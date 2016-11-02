@@ -1,0 +1,21 @@
+{
+  "name": "amathus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "cheerio": "^0.22.0",
+    "filenamify-url": "^1.0.0",
+    "mongoose": "^4.6.1",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1",
+    "sanitize-filename": "^1.6.0",
+    "uuid": "^2.0.3"
+  }
+}
