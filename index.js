@@ -104,7 +104,9 @@ function saveProducts(page_num) {
 	}
 	getProducts(page_num)
 	.then(function(products){
+		Product.create(products, function(){
 			return products
+		})
 	})
 	.then(function(response){
 		console.log('Saved page: ' + page_num)
