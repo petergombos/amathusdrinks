@@ -2,6 +2,7 @@ var request = require('request-promise')
 var cheerio = require('cheerio')
 var Promise = require('bluebird')
 var mongoose = require('mongoose')
+mongoose.Promise = Promise
 var Product = require('./Product')
 Promise.promisifyAll(mongoose);
 
@@ -104,9 +105,7 @@ function saveProducts(page_num) {
 	}
 	getProducts(page_num)
 	.then(function(products){
-		Product.create(products, function(){
-			return products
-		})
+		return Product.create(products)
 	})
 	.then(function(response){
 		console.log('Saved page: ' + page_num)
@@ -119,7 +118,7 @@ function saveProducts(page_num) {
 }
 
 // connect to mongo db
-mongoose.connect('mongodb://localhost/barflow-api-development', { server: { socketOptions: { keepAlive: 1 } } });
+mongoose.connect('mongodb://localhost/products', { server: { socketOptions: { keepAlive: 1 } } });
 mongoose.connection.on('error', function(){
   throw new Error('unable to connect to database: ${config.db}');
 })
